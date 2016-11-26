@@ -15,6 +15,7 @@ class TeaTimeViewController: UIViewController {
     @IBOutlet weak var teaPickerView: UIPickerView!
     
     var pickerData:[String] = [String]()
+    var teaSteepTime:[String] = [String]()
     
     @IBAction func startTimer(_ sender: UIButton) {
         
@@ -42,8 +43,11 @@ class TeaTimeViewController: UIViewController {
             "Black",
             "Darjeeling",
             "Oolong",
-            "Herbal"
+            "Herbal",
+            "Mate"
         ]
+        
+        teaSteepTime = ["3:00", "3:00", "3:00", "5:00", "3:00", "5:00", "7:00", "4:00"]
     }
     
 }
@@ -52,6 +56,8 @@ class TeaTimeViewController: UIViewController {
 // MARK: - PickerView Delegate and Data Source Protocol Implementation
 
 extension TeaTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    // Data Source Methods
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -63,6 +69,12 @@ extension TeaTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
+    }
+    
+    // Delegate Methods
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        timerLabel.text = teaSteepTime[row]
     }
     
 }
