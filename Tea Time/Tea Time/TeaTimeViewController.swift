@@ -15,10 +15,13 @@ class TeaTimeViewController: UIViewController {
     @IBOutlet weak var teaPickerView: UIPickerView!
     
     var pickerData:[String] = [String]()
-    var teaSteepTime:[String] = [String]()
+    var teaSteepTimeUI:[String] = [String]()
+    var teaSteepTime:[Int] = [Int]()
+    var steepTime:Int = 0
+    var timer:Timer = Timer()
     
     @IBAction func startTimer(_ sender: UIButton) {
-        
+        startStopTimer()
     }
     
     @IBAction func resetTimer(_ sender: UIButton) {
@@ -47,7 +50,30 @@ class TeaTimeViewController: UIViewController {
             "Mate"
         ]
         
-        teaSteepTime = ["3:00", "3:00", "3:00", "5:00", "3:00", "5:00", "7:00", "4:00"]
+        // Arrays for UI Label and Timer number of seconds
+        teaSteepTimeUI = ["3:00", "3:00", "3:00", "5:00", "3:00", "5:00", "7:00", "4:00"]
+        teaSteepTime   = [180,    180,    180,    300,    180,    300,    420,    240]
+    }
+    
+    
+    func startStopTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(decrementSteepTime), userInfo: nil, repeats: true)
+    }
+    
+    
+    func decrementSteepTime() {
+        steepTime -= 1
+        timerLabel.text = displaySteepTime(time: steepTime)
+    }
+    
+    func displaySteepTime(time:Int) -> String {
+        let minutes = (time / 60) % 60
+        let seconds = time % 60
+        
+        if seconds < 10 {                   // formatting:
+            return "\(minutes):0\(seconds)" // leading zero for single digit seconds
+        }
+        return "\(minutes):\(seconds)"      // else just use two digits
     }
     
 }
@@ -74,7 +100,8 @@ extension TeaTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     // Delegate Methods
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        timerLabel.text = teaSteepTime[row]
+        timerLabel.text = teaSteepTimeUI[row]
+        steepTime = teaSteepTime[row]
     }
     
 }
