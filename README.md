@@ -1,7 +1,7 @@
 # Tea Time
 An iOS 10 / Swift 3 based Tea Timer App designed to help you brew the perfect cup of tea based on the type of tea leaf used.
 
-![](art/screenshot/teatime00.gif?raw=true)
+![](art/screenshot/teatime01.gif?raw=true)
 
 ### Contributing
 See [CONTRIBUTING](CONTRIBUTING.md).

@@ -40,6 +40,32 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gSK-xa-g8b">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpg-eU-eQL">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="AcP-Gw-T8n"/>
+                                            <constraint firstAttribute="width" constant="120" id="YRm-5H-44Z"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="play"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ey-8w-2Ku">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="pkv-3s-KfS"/>
+                                            <constraint firstAttribute="width" constant="120" id="r01-8S-E7F"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="reset"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bpg-eU-eQL" firstAttribute="leading" secondItem="gSK-xa-g8b" secondAttribute="leading" id="147-T3-YEW"/>
+                                    <constraint firstItem="0ey-8w-2Ku" firstAttribute="top" secondItem="gSK-xa-g8b" secondAttribute="top" id="6Y9-54-8TJ"/>
+                                    <constraint firstAttribute="height" constant="60" id="IL5-uE-hRx"/>
+                                    <constraint firstAttribute="trailing" secondItem="0ey-8w-2Ku" secondAttribute="trailing" id="KA0-Qu-ALZ"/>
+                                    <constraint firstAttribute="width" constant="250" id="O53-4v-LiH"/>
+                                    <constraint firstItem="bpg-eU-eQL" firstAttribute="top" secondItem="gSK-xa-g8b" secondAttribute="top" id="XFa-zM-ZYP"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -49,6 +75,8 @@
                             <constraint firstItem="ReB-tQ-pXc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bti-ys-AJ5"/>
                             <constraint firstItem="ReB-tQ-pXc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="s9y-F3-fpY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3YG-vL-iPK" secondAttribute="trailing" id="sdq-rw-lbe"/>
+                            <constraint firstItem="gSK-xa-g8b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="slN-ew-5S9"/>
+                            <constraint firstItem="gSK-xa-g8b" firstAttribute="top" secondItem="3YG-vL-iPK" secondAttribute="bottom" constant="10" id="xQr-ED-KsK"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -57,4 +85,8 @@
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play" width="512" height="512"/>
+        <image name="reset" width="512" height="512"/>
+    </resources>
 </document>
