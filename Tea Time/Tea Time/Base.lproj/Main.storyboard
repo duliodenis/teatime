@@ -48,6 +48,9 @@
                                             <constraint firstAttribute="width" constant="120" id="YRm-5H-44Z"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="play"/>
+                                        <connections>
+                                            <action selector="startTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mpm-2T-tHh"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ey-8w-2Ku">
                                         <constraints>
@@ -55,6 +58,9 @@
                                             <constraint firstAttribute="width" constant="120" id="r01-8S-E7F"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="reset"/>
+                                        <connections>
+                                            <action selector="resetTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I3q-d4-gFa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -66,19 +72,29 @@
                                     <constraint firstItem="bpg-eU-eQL" firstAttribute="top" secondItem="gSK-xa-g8b" secondAttribute="top" id="XFa-zM-ZYP"/>
                                 </constraints>
                             </stackView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egN-Ci-o7m"/>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="egN-Ci-o7m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3Y3-WN-ziV"/>
                             <constraint firstItem="3YG-vL-iPK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7dO-wf-Iwe"/>
                             <constraint firstItem="3YG-vL-iPK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8Ft-5D-qjS"/>
                             <constraint firstAttribute="trailing" secondItem="ReB-tQ-pXc" secondAttribute="trailing" id="Bi7-b3-wv0"/>
+                            <constraint firstAttribute="bottom" secondItem="egN-Ci-o7m" secondAttribute="bottom" id="MnH-DT-01n"/>
+                            <constraint firstAttribute="trailing" secondItem="egN-Ci-o7m" secondAttribute="trailing" id="a4b-me-bVg"/>
                             <constraint firstItem="ReB-tQ-pXc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bti-ys-AJ5"/>
+                            <constraint firstItem="egN-Ci-o7m" firstAttribute="top" secondItem="gSK-xa-g8b" secondAttribute="bottom" constant="10" id="dnb-SM-cnW"/>
                             <constraint firstItem="ReB-tQ-pXc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="s9y-F3-fpY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3YG-vL-iPK" secondAttribute="trailing" id="sdq-rw-lbe"/>
                             <constraint firstItem="gSK-xa-g8b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="slN-ew-5S9"/>
                             <constraint firstItem="gSK-xa-g8b" firstAttribute="top" secondItem="3YG-vL-iPK" secondAttribute="bottom" constant="10" id="xQr-ED-KsK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startButton" destination="bpg-eU-eQL" id="1fJ-GC-lJL"/>
+                        <outlet property="teaPickerView" destination="egN-Ci-o7m" id="iF9-X2-rIQ"/>
+                        <outlet property="timerLabel" destination="3YG-vL-iPK" id="93K-4s-p60"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
