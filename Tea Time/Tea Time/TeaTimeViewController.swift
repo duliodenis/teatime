@@ -19,13 +19,20 @@ class TeaTimeViewController: UIViewController {
     var teaSteepTime:[Int] = [Int]()
     var steepTime:Int = 0
     var timer:Timer = Timer()
+    var isActive = false
     
     @IBAction func startTimer(_ sender: UIButton) {
         startStopTimer()
     }
     
     @IBAction func resetTimer(_ sender: UIButton) {
+        isActive = false
         
+        timer.invalidate()
+        steepTime = 0
+        timerLabel.text = "00:00"
+        startButton.isEnabled = false
+        startButton.alpha = 0.2
     }
     
     
@@ -34,6 +41,8 @@ class TeaTimeViewController: UIViewController {
         teaPickerView.delegate = self
         teaPickerView.dataSource = self
         setupPickerData()
+        startButton.isEnabled = false
+        startButton.alpha = 0.2
     }
     
     
@@ -57,7 +66,18 @@ class TeaTimeViewController: UIViewController {
     
     
     func startStopTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(decrementSteepTime), userInfo: nil, repeats: true)
+        if !isActive {
+            // activate the timer
+            isActive = true
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(decrementSteepTime), userInfo: nil, repeats: true)
+            timer.fire()
+        } else {
+            // pause the timer
+            isActive = false
+            timer.invalidate()
+            startButton.isEnabled = false
+        }
+
     }
     
     
@@ -102,6 +122,9 @@ extension TeaTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         timerLabel.text = teaSteepTimeUI[row]
         steepTime = teaSteepTime[row]
+        
+        startButton.isEnabled = true
+        startButton.alpha = 1
     }
     
 }
